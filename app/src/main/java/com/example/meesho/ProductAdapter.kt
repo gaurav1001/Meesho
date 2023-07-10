@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -47,7 +48,7 @@ class ProductAdapter(val dataset:List<Product>,private val context:Context,priva
     override fun onBindViewHolder(holder: RecView, position: Int) {
         val currentItem = dataset[position]
         holder.apply {
-            productImg.setImageResource(R.drawable.top1)
+            productImg.setImageResource(currentItem.img)
             productTitle.text = currentItem.title
             productPrice.text =  "$" + currentItem.price.toString()
 

@@ -33,7 +33,6 @@
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="$200"
             android:textSize="30sp"
             android:textStyle="bold"
             />
@@ -48,13 +47,72 @@
         android:textSize="24sp"
         />
 
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton android:id="@+id/size_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XS" />
+        <RadioButton android:id="@+id/size_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X" />
+        <RadioButton android:id="@+id/size_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="M" />
+        <RadioButton android:id="@+id/size_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="L" />
+        <RadioButton android:id="@+id/size_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XL" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton android:id="@+id/color_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Red" />
+        <RadioButton android:id="@+id/color_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blue" />
+        <RadioButton android:id="@+id/color_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Black" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <Button
-        android:id="@+id/button"
+        android:id="@+id/add_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Buy now"
-        android:layout_margin="10dp"
+        android:text="Add TO Cart"
+
         />
+
+        <Button
+            android:id="@+id/buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buy Now"
+
+            />
+
+    </LinearLayout>
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

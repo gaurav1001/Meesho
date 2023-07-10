@@ -12,7 +12,12 @@
         tools:layout="@layout/fragment_home_screen" >
         <action
             android:id="@+id/action_homeScreen_to_detailsScreen"
-            app:destination="@id/detailsScreen" />
+            app:destination="@id/detailsScreen" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+
+        </action>
     </fragment>
     <fragment
         android:id="@+id/detailsScreen"
