@@ -1,5 +1,6 @@
 package com.example.meesho
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
+import androidx.navigation.findNavController
 import com.example.meesho.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
         setContentView(binding.root)
-        setSupportActionBar(binding.myToolbar)
 
     }
 
@@ -24,21 +25,5 @@ class MainActivity : AppCompatActivity() {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu,menu)
         return true
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-      return  when(item.itemId){
-            R.id.search -> {
-                Log.d("MENU","Search")
-                true
-            }
-            R.id.cart -> {
-                Log.d("MENU","Cart")
-                true
-            }
-
-          else -> {
-              super.onOptionsItemSelected(item)
-          }
-       }
     }
 }
