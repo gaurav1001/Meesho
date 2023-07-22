@@ -18,12 +18,20 @@ class ProductViw : ViewModel() {
         get() = _cartList
 
 
+    private val _popularList:MutableLiveData<List<Product>> = MutableLiveData<List<Product>>()
+    val popularList:MutableLiveData<List<Product>>
+        get() = _popularList
+
     val selectedObj: MutableLiveData<Product> by lazy{
         MutableLiveData<Product>()
     }
 
+    val searchObj:MutableLiveData<Product> = MutableLiveData()
+
+
     init {
         _cartList.value = emptyList() // Initialize with an empty list
+        _popularList.value = emptyList()
     }
 
     fun setInitialData(product: List<Product>){
@@ -59,4 +67,28 @@ class ProductViw : ViewModel() {
         _cartList.value = data
     }
 
+   fun filterLowToHigh(){
+       val data = myData.value.orEmpty().toMutableList()
+       data.sortBy {
+           it.price
+       }
+       myData.value = data
+   }
+
+   fun filterHighToLow(){
+       val data = myData.value.orEmpty().toMutableList()
+       data.sortByDescending {
+           it.price
+       }
+       myData.value = data
+   }
+
+   fun searchFromList(data:String){
+       val findElement = myData.value?.find {product->
+           product.title == data
+       }
+       if(findElement != null){
+           searchObj.value = findElement!!
+       }
+   }
 }

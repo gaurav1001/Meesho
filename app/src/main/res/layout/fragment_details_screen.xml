@@ -53,6 +53,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="30sp"
                     android:textStyle="bold"
+                    android:background="@color/black"
+                    android:textColor="@color/white"
                     />
 
             </LinearLayout>

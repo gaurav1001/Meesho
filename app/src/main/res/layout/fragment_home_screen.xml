@@ -12,6 +12,63 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
+        
+        
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/filterLowToHigh"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Low-To-High"
+                            android:backgroundTint="@color/black"
+
+                            />
+
+                        <Button
+                            android:id="@+id/filterPriceHighToLow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="High-To-Low"
+                            android:layout_toRightOf="@id/filterLowToHigh"
+                            android:backgroundTint="@color/black"
+                            />
+
+                        <Button
+                            android:id="@+id/filterPopularity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Popularity"
+                            android:layout_toRightOf="@id/filterPriceHighToLow"
+                            android:backgroundTint="@color/black"
+                            />
+
+                        <Button
+                            android:id="@+id/filterRating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rating"
+                            android:layout_toRightOf="@id/filterPopularity"
+                            android:backgroundTint="@color/black"
+                            />
+
+                        <Button
+                            android:id="@+id/filterBrand"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Brand"
+                            android:layout_toRightOf="@id/filterRating"
+                            android:backgroundTint="@color/black"
+                            />
+                </RelativeLayout>
+        </HorizontalScrollView>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

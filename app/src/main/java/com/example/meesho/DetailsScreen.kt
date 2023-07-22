@@ -64,6 +64,10 @@ class DetailsScreen : Fragment() {
              binding.addCart.setOnClickListener{
                  model.addItemToCart(product.copy(size = size, color = color))
              }
+            binding.buy.setOnClickListener {
+                model.addItemToCart(product.copy(size = size, color = color))
+                findNavController().navigate(R.id.action_detailsScreen_to_myCart)
+            }
         }
 
         val radioGroup = view.findViewById<RadioGroup>(R.id.size)
@@ -108,6 +112,8 @@ class DetailsScreen : Fragment() {
                 }
             }
         }
+
+
 
       }
 

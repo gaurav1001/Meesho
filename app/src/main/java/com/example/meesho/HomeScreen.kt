@@ -26,9 +26,12 @@ class HomeScreen : Fragment(),ProductAdapter.OnProductClickListener {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-       binding.toolbar.inflateMenu(R.menu.menu)
-       binding.toolbar.setTitle(R.string.app_name)
-       binding.toolbar.setOnMenuItemClickListener {menuItem->
+        binding.toolbar.inflateMenu(R.menu.menu)
+        binding.toolbar.setNavigationIcon(R.drawable.baseline_arrow_back_24)
+        binding.toolbar.setNavigationOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
+        binding.toolbar.setOnMenuItemClickListener {menuItem->
            when(menuItem.itemId){
                R.id.cart -> {
                    findNavController().navigate(R.id.action_homeScreen_to_myCart)
@@ -42,19 +45,18 @@ class HomeScreen : Fragment(),ProductAdapter.OnProductClickListener {
            }
        }
 
-       val myList = listOf<Product>(
-           Product(1,"Product 1",200.00,"This is our best good looking women top create with finest fabric inspired by italian craftman",R.drawable.top1,"",""),
-           Product(2,"Product 2",300.00,"This is our best good looking women top create with finest fabric inspired by italian craftman",R.drawable.top2,"",""),
-           Product(3,"Product 3",500.00,"This is our best good looking women top create with finest fabric inspired by italian craftman",R.drawable.top3,"",""),
-           Product(4,"Product 4",800.00,"This is our best good looking women top create with finest fabric inspired by italian craftman",R.drawable.top4,"",""),
-           
-       )
 
-       model.setInitialData(myList)
        model.myData.observe(viewLifecycleOwner){list->
            binding.recyclerView.adapter = ProductAdapter(list,requireContext(),this)
        }
 
+        binding.filterLowToHigh.setOnClickListener {
+           model.filterLowToHigh()
+        }
+
+        binding.filterPriceHighToLow.setOnClickListener {
+            model.filterHighToLow()
+        }
     }
 
     companion object{
